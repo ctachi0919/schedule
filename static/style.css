@@ -1,15 +1,16 @@
 body {
   font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f0f0f0;
+  text-align: center;
+  margin-top: 50px;
 }
 
-.container {
-  text-align: center;
-  font-size: 2em;
-  color: #333;
+input, button {
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+}
+
+#responseMessage {
+  color: green;
+  font-weight: bold;
 }

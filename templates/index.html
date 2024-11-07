@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Flask App with JS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My Simple Flask App</h1>
+        <p id="message">This is a basic example of using Python with HTML, CSS, and JavaScript.</p>
+        <button onclick="changeText()">Click me to change text</button>
+    </div>
+    
+    <!-- Include the JavaScript file -->
+    <script src="{{ url_for('static', filename='schedule.js') }}"></script>
+</body>
+</html>

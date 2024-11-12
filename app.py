@@ -1,11 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-# Route to render the index.html page
-@app.route("/")
+# Home route
+@app.route('/')
 def home():
-    return render_template("index.html")
+    return render_template('index.html')
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# API route
+@app.route('/api/data', methods=['POST'])
+def api_data():
+    data = request.get_json()
+    response = {'message': f'Hello, {data["name"]}!'}
+    return jsonify(response)
+
+if __name__ == '__main__':
+    app.run()

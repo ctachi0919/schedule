@@ -1,4 +1,13 @@
-function changeText() {
-  // Get the element with id="message" and change its text content
-  document.getElementById("message").innerText = "You clicked the button! The text is changed.";
+function sendData() {
+  const name = document.getElementById("name").value;
+  fetch("/api/data", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: name })
+  })
+  .then(response => response.json())
+  .then(data => {
+      document.getElementById("responseMessage").innerText = data.message;
+  })
+  .catch(error => console.error("Error:", error));
 }

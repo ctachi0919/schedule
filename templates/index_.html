@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='tailwind.css') }}">
+</head>
+<body>
+    <h1 class="text-2xl">Welcome to My Simple Flask App</h1>
+    <input type="text" id="name" placeholder="Enter your name">
+    <button onclick="sendData()">Submit</button>
+    <p id="responseMessage"></p>
+    <script src="{{ url_for('static', filename='schedule.js') }}"></script>
+    <div class="bg-white shadow-lg rounded-lg p-6 w-80">
+        <h2 class="text-center text-lg font-semibold mb-4">Enter ID to Greet</h2>
+        <input type="text" id="userId" placeholder="Enter ID" class="border p-2 w-full mb-4">
+        <button onclick="getGreeting()" class="bg-blue-500 text-white p-2 w-full">Submit</button>
+        <p id="response" class="mt-4 text-center text-lg"></p>
+    </div>
+</body>
+</html>

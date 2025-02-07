@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="">
+  <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Flask App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='tailwind.css') }}">
-</head>
-<body>
-    <h1 class="text-2xl">Welcome to My Simple Flask App</h1>
-    <input type="text" id="name" placeholder="Enter your name">
-    <button onclick="sendData()">Submit</button>
-    <p id="responseMessage"></p>
-    <script src="{{ url_for('static', filename='schedule.js') }}"></script>
-</body>
+    <title>Vite App</title>
+    <script type="module" crossorigin src="{{ url_for('static', filename='index-DOlFMbFa.js') }}"></script>
+    <link rel="stylesheet" crossorigin href="{{ url_for('static', filename='index-g8f7H3kp.css') }}">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
 </html>

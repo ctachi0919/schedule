@@ -16,10 +16,14 @@ month = 1
 def execute_mysql(action, query, values=None):
     try:
         db = mysql.connector.connect(
-            host='localhost',
-            user='root',
-            password='root',
-            database='schedule'
+            # host='localhost',
+            # user='root',
+            # password='root',
+            # database='schedule'
+            host='Tachinya529.mysql.pythonanywhere-services.com',
+            user='Tachinya529',
+            password='chiki529',
+            database='Tachinya529$schedule'
         )
         cursor = db.cursor()
         cursor.execute(query, values)

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import mysql.connector
 from datetime import date
@@ -14,6 +14,7 @@ day = 0
 month = 1
 
 def execute_mysql(action, query, values=None):
+    print(action, query, values)
     try:
         db = mysql.connector.connect(
             # host='localhost',
@@ -57,6 +58,7 @@ def register_diary():
     data = request.get_json()
     date = data['date']
     text = data['text']
+    print(date, text)
 
     if not data or not text:
         # Return error if request param doesn't exist
@@ -69,6 +71,7 @@ def register_diary():
 @app.route('/get/diary', methods=['GET'])
 def get_diary():
     date_type = int(request.args.get('date_type'))
+    print(date_type)
     if date_type == day:
         date = request.args.get('date')
         if not date:
@@ -89,6 +92,7 @@ def get_diary():
             return jsonify({}), 400
         
         result = execute_mysql(select, "SELECT date, diary FROM diary WHERE date >= %s AND date <= %s", (day_from, day_to,))
+        print(result)
     
         if not result:
             return jsonify({}), 500
@@ -96,13 +100,10 @@ def get_diary():
         diary = []
         for row in result:
             diary.append({"date": row[0], "text": row[1]})
+        
+        print(diary)
 
         return jsonify({"diary": diary}), 200
-
-# Main
-@app.route('/')
-def home():
-    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

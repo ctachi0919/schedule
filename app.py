@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
 import mysql.connector
 from datetime import date
@@ -52,6 +52,10 @@ def execute_mysql(action, query, values=None):
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/register/diary', methods=['POST'])
 def register_diary():

@@ -75,7 +75,7 @@ def register_diary():
 @app.route('/get/diary', methods=['GET'])
 def get_diary():
     date_type = int(request.args.get('date_type'))
-    print(date_type)
+    print('処理は開始している', date_type)
     if date_type == day:
         date = request.args.get('date')
         if not date:
@@ -89,6 +89,7 @@ def get_diary():
     
         return jsonify({"text": result[0][0] if result[0][0] else ""}), 200
     else:
+        print('こっち')
         day_from = request.args.get('from')
         day_to = request.args.get('to')
         if not day_from or not day_to:
@@ -97,6 +98,8 @@ def get_diary():
         
         result = execute_mysql(select, "SELECT date, diary FROM diary WHERE date >= %s AND date <= %s", (day_from, day_to,))
         print(result)
+
+        print('恐らく結果なし', result)
     
         if not result:
             return jsonify({}), 500
@@ -105,7 +108,7 @@ def get_diary():
         for row in result:
             diary.append({"date": row[0], "text": row[1]})
         
-        print(diary)
+        print('ここで出力', diary)
 
         return jsonify({"diary": diary}), 200
 

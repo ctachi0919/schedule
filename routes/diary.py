@@ -123,9 +123,13 @@ def get_diary():
         if not day_from or not day_to:
             # Days are missing
             return jsonify({}), 400
+        
+        print('ここまでおっけ')
 
         # Get data
         result = Diary.query.filter(Diary.date >= day_from, Diary.date <= day_to).all()
+
+        print('これもいける')
 
         if not result:
             return jsonify({}), 200

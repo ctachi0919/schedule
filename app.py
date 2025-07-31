@@ -11,10 +11,12 @@ CORS(app)
 # password = 'root'
 # host = 'localhost'
 # database = 'schedule'
-username='Tachinya529',
-password='chiki529',
-host='Tachinya529.mysql.pythonanywhere-services.com',
-database='Tachinya529$schedule'
+username = 'Tachinya529'
+password = 'chiki529'
+host = 'Tachinya529.mysql.pythonanywhere-services.com'
+database = 'Tachinya529$schedule'
+
+print(username)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqlconnector://{username}:{password}@{host}/{database}'
 print('ゆーある',f'mysql+mysqlconnector://{username}:{password}@{host}/{database}')

@@ -130,9 +130,11 @@ def get_diary():
         result = Diary.query.filter(Diary.date >= day_from, Diary.date <= day_to).all()
 
         print('これもいける')
+        print(result)
 
         if not result:
             return jsonify({}), 200
 
         diary = [{"id": d.id, "date": d.date, "text": d.diary} for d in result]
+        print('結果の取得', diary)
         return jsonify({"diary": diary}), 200

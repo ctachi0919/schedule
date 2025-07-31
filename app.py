@@ -6,7 +6,17 @@ from routes.todo import todo_bp
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:root@localhost/schedule'
+
+# username = 'root'
+# password = 'root'
+# host = 'localhost'
+# database = 'schedule'
+username='Tachinya529',
+password='chiki529',
+host='Tachinya529.mysql.pythonanywhere-services.com',
+database='Tachinya529$schedule'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqlconnector://{username}:{password}@{host}/{database}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 app.register_blueprint(diary_bp, url_prefix="/")

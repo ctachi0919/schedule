@@ -17,8 +17,8 @@ host='Tachinya529.mysql.pythonanywhere-services.com',
 database='Tachinya529$schedule'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqlconnector://{username}:{password}@{host}/{database}'
+print('ゆーある',f'mysql+mysqlconnector://{username}:{password}@{host}/{database}')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-print(f'mysql+mysqlconnector://{username}:{password}@{host}/{database}')
 db.init_app(app)
 app.register_blueprint(diary_bp, url_prefix="/")
 app.register_blueprint(todo_bp, url_prefix="/")

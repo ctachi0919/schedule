@@ -96,7 +96,6 @@ def delete_diary():
 
 @diary_bp.route('/get/diary', methods=['GET'])
 def get_diary():
-    print('ここは成功')
     date_type = int(request.args.get('date_type'))
     print(f"Start to get diary type:{date_type}.")
 

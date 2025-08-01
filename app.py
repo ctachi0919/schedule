@@ -17,6 +17,7 @@ host = os.getenv("HOST")
 database = os.getenv("DATABASE")
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqlconnector://{username}:{password}@{host}/{database}'
+print(f'mysql+mysqlconnector://{username}:{password}@{host}/{database}')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 app.register_blueprint(diary_bp, url_prefix="/")
